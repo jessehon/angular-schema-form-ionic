@@ -3,5 +3,5 @@ var gulp = require('gulp'),
 
 gulp.task('jscs', function() {
   gulp.src('./src/**/*.js')
-      .pipe(jscs());
+    .pipe(jscs());
 });

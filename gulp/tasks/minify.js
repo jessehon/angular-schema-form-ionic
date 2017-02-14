@@ -10,23 +10,23 @@ gulp.task('minify', function() {
   var stream = streamqueue({objectMode: true});
   stream.queue(
     gulp.src('./src/**/*.html')
-    .pipe(minifyHtml({
-      empty: true,
-      spare: true,
-      quotes: true
-    }))
-    .pipe(templateCache({
-      module: 'schemaForm',
-      root: 'decorators/ionic/'
-    }))
+      .pipe(minifyHtml({
+        empty: true,
+        spare: true,
+        quotes: true
+      }))
+      .pipe(templateCache({
+        module: 'schemaForm',
+        root: 'decorators/ionic/'
+      }))
     );
   stream.queue(gulp.src('./src/**/*.js'));
 
   stream.done()
-  .pipe(concat('ionic-decorator.js'))
-  .pipe(gulp.dest('./'))
-  .pipe(uglify())
-  .pipe(rename('ionic-decorator.min.js'))
-  .pipe(gulp.dest('./'));
+    .pipe(concat('ionic-decorator.js'))
+    .pipe(gulp.dest('./'))
+    .pipe(uglify())
+    .pipe(rename('ionic-decorator.min.js'))
+    .pipe(gulp.dest('./'));
 
 });
