@@ -2,7 +2,7 @@
   "name": "angular-schema-form-ionic",
   "version": "0.1.0",
   "description": "Ionic 1 decorator for Angular Schema Form",
-  "main": "ionic-decorator.js",
+  "main": "dist/ionic-decorator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,5 +10,22 @@
     "angular-schema-form-decorator"
   ],
   "author": "Jesse Hon <jesse@jessehon.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jessehon/angular-schema-form-ionic.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-angular-templatecache": "^1.6.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-jscs": "^2.0.0",
+    "gulp-minify-html": "^1.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-umd": "^0.2.0",
+    "gulp-watch": "^4.2.4",
+    "gulp-webserver": "^0.9.1",
+    "streamqueue": "^0.1.3"
+  }
 }
