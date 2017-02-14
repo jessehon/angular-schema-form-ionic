@@ -1,0 +1,13 @@
+<label for="{{form.key.slice(-1)[0]}}"
+       class="item item-input schema-form-{{form.type}} {{form.htmlClass}}"
+       ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false}">
+  <span ng-show="showTitle()" class="input-label {{form.labelHtmlClass}}">{{form.title}}</span>
+  <textarea sf-field-model
+            sf-changed="form"
+            placeholder="{{form.placeholder}}"
+            id="{{form.key.slice(-1)[0]}}"
+            ng-class="form.fieldHtmlClass"
+            ng-disabled="form.readonly"
+            schema-validate="form"
+            name="{{form.key.slice(-1)[0]}}"></textarea>
+</label>
