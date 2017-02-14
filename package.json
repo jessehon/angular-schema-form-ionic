@@ -1,0 +1,14 @@
+{
+  "name": "angular-schema-form-ionic",
+  "version": "0.1.0",
+  "description": "Ionic 1 decorator for Angular Schema Form",
+  "main": "ionic-decorator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angular-schema-form-decorator"
+  ],
+  "author": "Jesse Hon <jesse@jessehon.com>",
+  "license": "MIT"
+}
