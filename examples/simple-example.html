@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple example</title>
+      <link rel="stylesheet" href="../bower_components/ionic/release/css/ionic.css" />
+  </head>
+
+  <body ng-app="examples">
+
+    <ion-header-bar align-title="left" class="bar-positive">
+      <h1 class="title">Simple example</h1>
+    </ion-header-bar>
+
+    <ion-content class="has-header" ng-controller="SimpleExampleCtrl as vm">
+      <div class="list">
+        <div class="item item-divider">
+          Form
+        </div>
+          <div class="item">
+            The form is <em ng-show="ngForm.$pristine">pristine</em><em ng-show="ngForm.$dirty">dirty</em>
+            and <em ng-show="ngForm.$valid">valid</em><em ng-show="!ngForm.$valid">invalid</em>
+          </div>
+        <div class="item">
+          <form name="ngForm"
+                class="list list-inset"
+                sf-schema="vm.schemaFormData.schema"
+                sf-form="vm.schemaFormData.form"
+                sf-model="vm.model">
+          </form>
+        </div>
+
+        <div class="item item-divider">
+          Model
+        </div>
+        <div class="item">
+          <pre><code>{{vm.prettyModel}}</code></pre>
+        </div>
+      </div>
+    </ion-content>
+
+    <script type="text/javascript" src="../bower_components/ionic/release/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="../bower_components/tv4/tv4.js"></script>
+    <script type="text/javascript" src="../bower_components/objectpath/lib/ObjectPath.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-schema-form/dist/schema-form.js"></script>
+    <script type="text/javascript" src="../dist/ionic-decorator.js"></script>
+
+    <script>
+      angular
+        .module('examples', ['schemaForm'])
+        .controller('SimpleExampleCtrl', SimpleExampleCtrl);
+
+      SimpleExampleCtrl.$inject = ['$scope', '$q', '$timeout'];
+      function SimpleExampleCtrl($scope, $q, $timeout) {
+        var vm = this;
+
+        vm.model = {};
+        vm.schemaFormData = {
+          "schema": {
+            "type": "object",
+            "title": "Comment",
+            "properties": {
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "email": {
+                "title": "Email",
+                "type": "string",
+                "pattern": "^\\S+@\\S+$",
+                "description": "Email will be used for evil."
+              },
+              "comment": {
+                "title": "Comment",
+                "type": "string",
+                "maxLength": 20,
+                "validationMessage": "Don't be greedy!"
+              }
+            },
+            "required": ["name", "email", "comment"]
+          },
+          "form": [
+            "name",
+            {
+              "key": "email",
+              "ngModelOptions": {"updateOn": "blur"}
+            },
+            {
+              "key": "comment",
+              "type": "textarea",
+              "placeholder": "Make a comment"
+            },
+            {
+              "type": "submit",
+              "style": "btn-info",
+              "title": "OK"
+            }
+          ]
+        };
+
+        activate();
+
+        function activate() {
+          // Re-render `prettyModel` every time the `model` changes
+          $scope.$watch('vm.model', function(value){
+            if (value) {
+              vm.prettyModel = JSON.stringify(value, undefined, 2);
+            }
+          }, true);
+
+        }
+      };
+
+    </script>
+
+  </body>
+</html>
