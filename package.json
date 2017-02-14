@@ -11,6 +11,10 @@
   ],
   "author": "Jesse Hon <jesse@jessehon.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jessehon/angular-schema-form-ionic.git"
+  },
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-angular-templatecache": "^1.6.0",
