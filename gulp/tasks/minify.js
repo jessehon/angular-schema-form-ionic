@@ -24,9 +24,9 @@ gulp.task('minify', function() {
 
   stream.done()
     .pipe(concat('ionic-decorator.js'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./dist'))
     .pipe(uglify())
     .pipe(rename('ionic-decorator.min.js'))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./dist'));
 
 });
