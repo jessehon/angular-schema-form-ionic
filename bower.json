@@ -1,0 +1,24 @@
+{
+  "name": "angular-schema-form-ionic",
+  "description": "Ionic 1 decorator for Angular Schema Form",
+  "main": "dist/ionic-decorator.js",
+  "authors": [
+    "Jesse Hon <jesse@jessehon.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular-schema-form-decorator"
+  ],
+  "homepage": "https://github.com/jessehon/angular-schema-form-ionic",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-schema-form": "^0.8.13",
+    "ionic": "^1.3.0"
+  }
+}
