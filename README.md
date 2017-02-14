@@ -1,5 +1,5 @@
-Angular Ionic Decorator
-==========================
+Angular Ionic Decorator (Unstable)
+==================================
 
 For https://github.com/json-schema-form/angular-schema-form
 
