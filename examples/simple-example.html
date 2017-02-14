@@ -4,6 +4,7 @@
     <title>Simple example</title>
       <link rel="stylesheet" href="../bower_components/ionic/release/css/ionic.css" />
   </head>
+
   <body ng-app="examples">
 
     <ion-header-bar align-title="left" class="bar-positive">
@@ -16,14 +17,15 @@
           Form
         </div>
           <div class="item">
-          The form is <em ng-show="ngForm.$pristine">pristine</em><em ng-show="ngForm.$dirty">dirty</em>
-          and <em ng-show="ngForm.$valid">valid</em><em ng-show="!ngForm.$valid">invalid</em>.
+            The form is <em ng-show="ngForm.$pristine">pristine</em><em ng-show="ngForm.$dirty">dirty</em>
+            and <em ng-show="ngForm.$valid">valid</em><em ng-show="!ngForm.$valid">invalid</em>
           </div>
         <div class="item">
-          <form name="ngForm" class="list list-inset"
-              sf-schema="vm.schemaFormData.schema"
-              sf-form="vm.schemaFormData.form"
-              sf-model="vm.model">
+          <form name="ngForm"
+                class="list list-inset"
+                sf-schema="vm.schemaFormData.schema"
+                sf-form="vm.schemaFormData.form"
+                sf-model="vm.model">
           </form>
         </div>
 
@@ -58,11 +60,11 @@
             "type": "object",
             "title": "Comment",
             "properties": {
-              "name":  {
+              "name": {
                 "title": "Name",
                 "type": "string"
               },
-              "email":  {
+              "email": {
                 "title": "Email",
                 "type": "string",
                 "pattern": "^\\S+@\\S+$",
@@ -75,11 +77,14 @@
                 "validationMessage": "Don't be greedy!"
               }
             },
-            "required": ["name","email","comment"]
+            "required": ["name", "email", "comment"]
           },
           "form": [
             "name",
-            { "key": "email", "ngModelOptions": {"updateOn": "blur"}},
+            {
+              "key": "email",
+              "ngModelOptions": {"updateOn": "blur"}
+            },
             {
               "key": "comment",
               "type": "textarea",
@@ -87,7 +92,7 @@
             },
             {
               "type": "submit",
-            "style": "btn-info",
+              "style": "btn-info",
               "title": "OK"
             }
           ]
