@@ -10,6 +10,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   var defaults = [sfField, ngModel, ngModelOptions, condition];
   decoratorsProvider.defineDecorator('ionicDecorator', {
     'textarea': {template: base + 'textarea.html', builder: defaults},
+    'submit': {template: base + 'submit.html', builder: defaults},
     'default': {template: base + 'default.html', builder: defaults}
   }, []);
 
