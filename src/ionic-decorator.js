@@ -7,6 +7,33 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   var sfField             = sfBuilderProvider.builders.sfField;
   var condition           = sfBuilderProvider.builders.condition;
 
+  var selectPlaceholder = function(args) {
+    if (args.form.placeholder) {
+      var selectBox = args.fieldFrag.querySelector('select');
+      var option = document.createElement('option');
+      option.setAttribute('value', '');
+
+      /* We only want the placeholder to show when we do not have a value on the model.
+       * We make ngModel builder replace all so we can use $$value$$.
+       */
+      option.setAttribute('sf-field-model', 'replaceAll');
+
+      /* https://github.com/angular/angular.js/issues/12190#issuecomment-115277040
+       * angular > 1.4 does a emptyOption.attr('selected', true)
+       * which does not like the ng-if comment.
+       */
+      if (angular.version.major === 1 && angular.version.minor < 4) {
+        option.setAttribute('ng-if', '$$value$$ === undefined');
+      } else {
+        option.setAttribute('ng-show', '$$value$$ === undefined');
+      }
+
+      option.textContent = args.form.placeholder;
+
+      selectBox.appendChild(option);
+    }
+  };
+
   var defaults = [sfField, ngModel, ngModelOptions, condition];
   decoratorsProvider.defineDecorator('ionicDecorator', {
     'textarea': {template: base + 'textarea.html', builder: defaults},
