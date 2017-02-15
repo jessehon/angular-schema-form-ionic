@@ -44,6 +44,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     'submit': {template: base + 'submit.html', builder: defaults},
     'button': {template: base + 'submit.html', builder: defaults},
     'radios': {template: base + 'radios.html', builder: defaults},
+    'toggle': {template: base + 'toggle.html', builder: defaults},
     'default': {template: base + 'default.html', builder: defaults}
   }, []);
 
