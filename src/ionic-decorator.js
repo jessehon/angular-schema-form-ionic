@@ -2,6 +2,7 @@ angular.module('schemaForm').config(['schemaFormDecoratorsProvider', 'sfBuilderP
 function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   var base = 'decorators/ionic/';
 
+  var simpleTransclusion  = sfBuilderProvider.builders.simpleTransclusion;
   var ngModelOptions      = sfBuilderProvider.builders.ngModelOptions;
   var ngModel             = sfBuilderProvider.builders.ngModel;
   var sfField             = sfBuilderProvider.builders.sfField;
@@ -37,6 +38,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   var defaults = [sfField, ngModel, ngModelOptions, condition];
   decoratorsProvider.defineDecorator('ionicDecorator', {
     'textarea': {template: base + 'textarea.html', builder: defaults},
+    'fieldset': {template: base + 'fieldset.html', builder: [sfField, simpleTransclusion, condition]},
     'checkbox': {template: base + 'checkbox.html', builder: defaults},
     'select': {template: base + 'select.html', builder: [selectPlaceholder, sfField, ngModel, ngModelOptions, condition]},
     'submit': {template: base + 'submit.html', builder: defaults},
