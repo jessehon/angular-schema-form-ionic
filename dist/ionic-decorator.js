@@ -16,6 +16,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     'textarea': {template: base + 'textarea.html', builder: defaults},
     'checkbox': {template: base + 'checkbox.html', builder: defaults},
     'submit': {template: base + 'submit.html', builder: defaults},
+    'button': {template: base + 'submit.html', builder: defaults},
     'default': {template: base + 'default.html', builder: defaults}
   }, []);
 
