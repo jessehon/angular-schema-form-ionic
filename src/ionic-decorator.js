@@ -41,6 +41,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
     'select': {template: base + 'select.html', builder: [selectPlaceholder, sfField, ngModel, ngModelOptions, condition]},
     'submit': {template: base + 'submit.html', builder: defaults},
     'button': {template: base + 'submit.html', builder: defaults},
+    'radios': {template: base + 'radios.html', builder: defaults},
     'default': {template: base + 'default.html', builder: defaults}
   }, []);
 
