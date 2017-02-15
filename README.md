@@ -1,28 +1,38 @@
-Angular Ionic Decorator (Unstable)
-==================================
+Angular Ionic Decorator (WIP)
+=============================
 
-For https://github.com/json-schema-form/angular-schema-form
+Ionic 1 frontend decorator for the [Angular Schema Form](https://github.com/json-schema-form/angular-schema-form) project.
 
-This is a Ionic 1 frontend for the Angular Schema Form
-project.
+This project is based heavily off the [Bootstrap](https://github.com/json-schema-form/angular-schema-form-bootstrap) and [Material](https://github.com/json-schema-form/angular-schema-form-material) decorator. More information on how these decorators work can be found in the ASF documentation https://github.com/json-schema-form/angular-schema-form/blob/development/docs/extending.md
+
+## Work In Progress
+
+This project is still a work in progress and has not reached the stable `v1.0.0`. It does not yet have full support of all the default ASF form types and options.
 
 ## Installation
 
-You can install through bower
+You can install through npm
 
 ```
 npm install angular-schema-form-ionic
 ```
 
-or through npm
+or through bower
 
 ```
 bower install angular-schema-form-ionic
 ```
 
-Alternatively, download the package and reference the JavaScript file manually:
+then load the `ionic-decorator.min.js` file in your html. Make sure this is the only ASF decorator (i.e remember to remove the default `bootstrap-decorator.min.js`).
 
-```
-<script src="dist/ionic-decorator.min.js"></script>
-```
+## Usage
 
+If you have included the file properly, the decorator should automatically work.
+
+## Known issues
+
+ - Ionic by default styles `fieldset` with a border and padding, which looks weird when used to wrap Ionic `item`s. We would suggest adding your own css class to all `fieldset` types to fix the styling.
+
+## Contributing
+
+We will be much grateful if you help us making this project to grow up. Feel free to contribute by forking, opening issues, pull requests etc.
