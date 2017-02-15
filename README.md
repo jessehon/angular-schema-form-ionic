@@ -1,13 +1,19 @@
 Angular Ionic Decorator (WIP)
 =============================
 
-Ionic 1 frontend decorator for the [Angular Schema Form](https://github.com/json-schema-form/angular-schema-form) project.
+Ionic 1 frontend decorator for the [Angular Schema Form (ASF)](https://github.com/json-schema-form/angular-schema-form) project.
 
 This project is based heavily off the [Bootstrap](https://github.com/json-schema-form/angular-schema-form-bootstrap) and [Material](https://github.com/json-schema-form/angular-schema-form-material) decorator. More information on how these decorators work can be found in the ASF documentation https://github.com/json-schema-form/angular-schema-form/blob/development/docs/extending.md
 
 ## Work In Progress
 
 This project is still a work in progress and has not reached the stable `v1.0.0`. It does not yet have full support of all the default ASF form types and options.
+
+## Additional form types
+
+The following list documents additional form types that are added by this project and not in the default ASF list.
+
+ - `toggle` - behaves the same as `checkbox` and also represented by a `boolean`
 
 ## Installation
 
