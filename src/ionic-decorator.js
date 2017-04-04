@@ -39,6 +39,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   decoratorsProvider.defineDecorator('ionicDecorator', {
     'textarea': {template: base + 'textarea.html', builder: defaults},
     'fieldset': {template: base + 'fieldset.html', builder: [sfField, simpleTransclusion, condition]},
+    'section': {template: base + 'section.html', builder: [sfField, simpleTransclusion, condition]},
     'checkbox': {template: base + 'checkbox.html', builder: defaults},
     'select': {template: base + 'select.html', builder: [selectPlaceholder, sfField, ngModel, ngModelOptions, condition]},
     'submit': {template: base + 'submit.html', builder: defaults},
