@@ -7,6 +7,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   var ngModel             = sfBuilderProvider.builders.ngModel;
   var sfField             = sfBuilderProvider.builders.sfField;
   var condition           = sfBuilderProvider.builders.condition;
+  var array               = sfBuilderProvider.builders.array;
 
   var selectPlaceholder = function(args) {
     if (args.form.placeholder) {
@@ -39,6 +40,7 @@ function(decoratorsProvider, sfBuilderProvider, sfPathProvider) {
   decoratorsProvider.defineDecorator('ionicDecorator', {
     'textarea': {template: base + 'textarea.html', builder: defaults},
     'fieldset': {template: base + 'fieldset.html', builder: [sfField, simpleTransclusion, condition]},
+    'array': {template: base + 'array.html', builder: [sfField, ngModelOptions, ngModel, array, condition]},
     'section': {template: base + 'section.html', builder: [sfField, simpleTransclusion, condition]},
     'checkbox': {template: base + 'checkbox.html', builder: defaults},
     'select': {template: base + 'select.html', builder: [selectPlaceholder, sfField, ngModel, ngModelOptions, condition]},
