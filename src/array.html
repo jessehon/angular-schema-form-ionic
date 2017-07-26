@@ -1,0 +1,38 @@
+<div  class="list schema-form-array {{form.htmlClass}}"
+      sf-field-model="sf-new-array"
+      sf-new-array>
+
+  <div class="item item-divider" ng-show="showTitle()">
+    {{ form.title }}
+  </label>
+
+  <div sf-field-model>
+    <div  class="list list-inset {{form.fieldHtmlClass}}"
+          schema-form-array-items
+          sf-field-model="ng-repeat"
+          ng-repeat="item in $$value$$ track by $index">
+      <button ng-hide="form.readonly || form.remove === null"
+              ng-click="deleteFromArray($index)"
+              ng-disabled="form.schema.minItems >= modelArray.length"
+              type="button"
+              class="button icon-left ion-close {{ form.style.remove || 'button-block' }}">
+        {{ form.remove || 'Remove'}}
+      </button>
+    </div>
+  </div>
+
+  <div class="padding" ng-model="modelArray" schema-validate="form">
+    <p class="help-block"
+         ng-show="(hasError() && errorMessage(schemaError())) || form.description"
+         ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description">
+    </p>
+
+    <button ng-hide="form.readonly || form.add === null"
+            ng-click="appendToArray()"
+            ng-disabled="form.schema.maxItems <= modelArray.length"
+            type="button"
+            class="button icon-left ion-plus {{ form.style.add || 'button-block' }}">
+      {{ form.add || 'Add'}}
+    </button>
+  </div>
+</div>
