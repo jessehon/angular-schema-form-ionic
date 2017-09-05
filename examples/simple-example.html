@@ -54,48 +54,130 @@
       function SimpleExampleCtrl($scope, $q, $timeout) {
         var vm = this;
 
-        vm.model = {};
+        vm.model = {
+                    "inventoryItemList": [
+                    {
+                        "jdeItemNumber": "15513F",
+                        "description": "10M POWER CABLE FOR OMS840",
+                        "plannedQuantity": 12,
+                        "wmskey": "SOPR010824",
+                        "isPlannedItem": true,
+                        "reasonForVariation": "",
+                        "hasStock": false,
+                        "actualQuantity": 0
+                    },
+                    {
+                        "jdeItemNumber": "26335F",
+                        "actualQuantity": 0,
+                        "description": "CABLE CU 400/0.40 CPFUT MBHJSJ",
+                        "wmskey": "26335F",
+                        "isPlannedItem": false,
+                        "category": "CAB",
+                        "subcategory": "COP",
+                        "reasonForVariation": "",
+                        "hasStock": false
+                    },
+                    {
+                        "jdeItemNumber": "26254F",
+                        "actualQuantity": 0,
+                        "description": "CABLE CU 100/0.64 CPFUT MBHJCB",
+                        "wmskey": "26254F",
+                        "isPlannedItem": false,
+                        "category": "CAB",
+                        "subcategory": "COP",
+                        "reasonForVariation": "",
+                        "hasStock": false
+                    },
+                    ],
+                  };
         vm.schemaFormData = {
-          "schema": {
-            "type": "object",
-            "title": "Comment",
-            "properties": {
-              "name": {
-                "title": "Name",
-                "type": "string"
-              },
-              "email": {
-                "title": "Email",
-                "type": "string",
-                "pattern": "^\\S+@\\S+$",
-                "description": "Email will be used for evil."
-              },
-              "comment": {
-                "title": "Comment",
-                "type": "string",
-                "maxLength": 20,
-                "validationMessage": "Don't be greedy!"
-              }
+            "schema": {
+                "title": "Inventory items",
+                "type": "object",
+                "properties": {
+                    "inventoryItemList": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "jdeItemNumber": {
+                                    "title": "Item number",
+                                    "type": "string",
+                                    "readonly": true
+                                },
+                                "description": {
+                                    "title": "Description",
+                                    "type": "string",
+                                    "readonly": true
+                                },
+                                "plannedQuantity": {
+                                    "title": "Planned quantity",
+                                    "type": "integer",
+                                    "readonly": true
+                                },
+                                "actualQuantity": {
+                                    "title": "Actual quantity",
+                                    "type": "integer"
+                                },
+                                "hasStock": {
+                                    "title": "Do you have access to the inventory required?",
+                                    "type": "boolean"
+                                },
+                                "reasonForVariation": {
+                                    "title": "Reason for variation",
+                                    "type": "string"
+                                },
+                                "wmskey": {
+                                    "title": "WMS Key",
+                                    "type": "string"
+                                },
+                                "isPlannedItem": {
+                                    "title": "Is planned item",
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "actualQuantity"
+                            ]
+                        }
+                    }
+                }
             },
-            "required": ["name", "email", "comment"]
-          },
-          "form": [
-            "name",
-            {
-              "key": "email",
-              "ngModelOptions": {"updateOn": "blur"}
-            },
-            {
-              "key": "comment",
-              "type": "textarea",
-              "placeholder": "Make a comment"
-            },
-            {
-              "type": "submit",
-              "style": "button-block button-positive",
-              "title": "OK"
-            }
-          ]
+            'form': [
+                {
+                    "title": "Materials",
+                    "key": "inventoryItemList",
+                    "notitle": true,
+                    "add": null,
+                    "items": [
+                        {
+                            "key": "inventoryItemList[].jdeItemNumber",
+                        },
+                        {
+                            "key": "inventoryItemList[].description",
+                        },
+                        {
+                            "key": "inventoryItemList[].plannedQuantity",
+                        },
+                        {
+                            "key": "inventoryItemList[].actualQuantity",
+                        },
+                        {
+                            "key": "inventoryItemList[].hasStock",
+                            "type": "checkbox",
+                        },
+                        {
+                            "key": "inventoryItemList[].reasonForVariation",
+                            "type": "textarea",
+                        },
+                        {
+                            "key": "inventoryItemList[].wmskey",
+                            "notitle": true,
+                            "htmlClass": "ng-hide"
+                        },
+                    ]
+                }
+            ]
         };
 
         activate();

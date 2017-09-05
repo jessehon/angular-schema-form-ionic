@@ -8,18 +8,16 @@
 
   <div sf-field-model>
     <div  class="list list-inset {{form.fieldHtmlClass}}"
-          
           sf-field-model="ng-repeat"
           ng-repeat="item in $$value$$ track by $index">
-          <div schema-form-array-items></div>
-          <button ng-hide="form.readonly || form.remove === null"
-              ng-click="deleteFromArray($index)"
-              ng-disabled="form.schema.minItems >= modelArray.length"
-              type="button"
-              class="button icon-left ion-close {{ form.style.remove || 'button-block' }}">
-        {{ form.remove || 'Remove'}}
+      <div schema-form-array-items></div>
+      <button ng-hide="form.readonly || form.remove === null"
+          ng-click="deleteFromArray($index)"
+          ng-disabled="form.schema.minItems >= modelArray.length"
+          type="button"
+          class="button icon-left ion-close {{ form.style.remove || 'button-block' }}">
+      {{ form.remove || 'Remove'}}
       </button>
-      
     </div>
   </div>
 
@@ -28,7 +26,6 @@
          ng-show="(hasError() && errorMessage(schemaError())) || form.description"
          ng-bind-html="(hasError() && errorMessage(schemaError())) || form.description">
     </p>
-
     <button ng-hide="form.readonly || form.add === null"
             ng-click="appendToArray()"
             ng-disabled="form.schema.maxItems <= modelArray.length"
@@ -37,4 +34,5 @@
       {{ form.add || 'Add'}}
     </button>
   </div>
+  
 </div>
