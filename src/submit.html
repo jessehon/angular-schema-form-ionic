@@ -1,8 +1,16 @@
 <div class="form-group schema-form-submit {{form.htmlClass}}">
-  <button class="button {{form.style}} {{form.fieldHtmlClass}}"
-          type="{{form.type}}"
+  <input type="submit"
+         class="button {{ form.style }} {{form.fieldHtmlClass}}"
+         value="{{form.title}}"
+         ng-disabled="form.readonly"
+         ng-if="form.type === 'submit'">
+  <button class="button {{ form.style }} {{form.fieldHtmlClass}}" 
+          type="button"
+          ng-click="buttonClick($event,form)"
           ng-disabled="form.readonly"
-          aria-label="{{form.title}}">
+          aria-label="{{form.title}}"
+          ng-if="form.type !== 'submit'">
+          <span ng-if="form.icon" class="{{form.icon}}"></span>
       {{form.title}}
   </button>
 </div>
