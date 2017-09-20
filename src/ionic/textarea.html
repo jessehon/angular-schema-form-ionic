@@ -1,0 +1,26 @@
+<label  class="item item-input {{::form.htmlClass + ' ' + idClass}} schema-form-textarea"
+        for="{{::fieldId(true, false)}}"
+        ng-class="{
+          'has-error': form.disableErrorState !== true && hasError(),
+          'has-success': form.disableSuccessState !== true && hasSuccess(),
+          'has-feedback': form.feedback !== false,
+          'required': form.required === true
+        }">
+
+  <span ng-show="showTitle()"
+        class="input-label {{::form.labelHtmlClass}}">
+    {{form.title}}
+  </span>
+
+  <textarea class="{{::form.fieldHtmlClass}}"
+            id="{{::fieldId(true, false)}}"
+            sf-changed="form"
+            ng-attr-placeholder="{{::form.placeholder}}"
+            ng-disabled="form.readonly"
+            sf-field-model
+            schema-validate="form"
+            name="{{::fieldId(true, false)}}"></textarea>
+
+  <!-- Help block for help text and error message -->
+  <p class="help-block" sf-message="form.description"></p>
+</label>

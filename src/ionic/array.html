@@ -1,4 +1,4 @@
-<div  class="list schema-form-array {{form.htmlClass}}"
+<div  class="list schema-form-array {{::form.htmlClass + ' ' + idClass}}"
       sf-field-model="sf-new-array"
       sf-new-array>
 
@@ -7,12 +7,18 @@
   </div>
 
   <div sf-field-model>
-    <div  class="list list-inset {{form.fieldHtmlClass}}"
+    <div  class="list list-inset {{::form.fieldHtmlClass}}"
           sf-field-model="ng-repeat"
-          ng-repeat="item in $$value$$ track by $index">
-      <div schema-form-array-items></div>
+          ng-repeat="item in $$value$$ track by $id(trackBy(item, index))">
+
+      <div  schema-form-array-items
+            sf-key-controller
+            sf-parent-key="[{{form.key.join('][')}}]"
+            sf-index="{{$index}}">
+      </div>
+
       <button ng-hide="form.readonly || form.remove === null"
-          ng-click="deleteFromArray($index)"
+          ng-click="deleteFromArray(item)"
           ng-disabled="form.schema.minItems >= modelArray.length"
           type="button"
           class="button icon-left ion-close {{ form.style.remove || 'button-block' }}">

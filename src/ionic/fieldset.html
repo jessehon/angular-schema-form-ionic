@@ -1,5 +1,5 @@
 <fieldset ng-disabled="form.readonly"
-          class="schema-form-fieldset {{form.htmlClass}}">
+          class="schema-form-fieldset {{::form.htmlClass + ' ' + idClass}}">
   <div ng-show="showTitle()" class="item item-divider">
     {{ form.title }}
   </div>

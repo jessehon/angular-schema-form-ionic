@@ -1,0 +1,32 @@
+<div  class="item item-toggle schema-form-toggle {{::form.htmlClass + ' ' + idClass}}"
+      ng-class="{
+        'has-error': form.disableErrorState !== true && hasError(),
+        'has-success': form.disableSuccessState !== true && hasSuccess(),
+        'has-feedback': form.feedback !== false,
+        'required': form.required === true
+      }">
+
+  <div class="{{::form.labelHtmlClass}}">
+    {{form.title}}
+  </div>
+
+  <label  for="{{::fieldId(true, false)}}"
+          class="toggle">
+
+    <input type="checkbox"
+           sf-changed="form"
+           ng-disabled="form.readonly"
+           sf-field-model
+           schema-validate="form"
+           class="{{::form.fieldHtmlClass}}"
+           name="{{::fieldId(true, false)}}">
+
+    <div class="track">
+      <div class="handle"></div>
+    </div>
+
+  </label>
+
+  <!-- Help block for help text and error message -->
+  <p class="help-block" sf-message="form.description"></p>
+</div>
