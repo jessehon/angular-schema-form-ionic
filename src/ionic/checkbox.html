@@ -1,0 +1,26 @@
+<label  for="{{::fieldId(true, false)}}"
+        class="item item-checkbox schema-form-{{form.type}} {{::form.htmlClass + ' ' + idClass}}"
+        ng-class="{
+          'has-error': form.disableErrorState !== true && hasError(),
+          'has-success': form.disableSuccessState !== true && hasSuccess(),
+          'has-feedback': form.feedback !== false,
+          'required': form.required === true
+        }">
+  <div class="checkbox checkbox-input-hidden disable-pointer-events">
+    <input  type="checkbox"
+            sf-changed="form"
+            ng-disabled="form.readonly"
+            sf-field-model
+            schema-validate="form"
+            class="{{::form.fieldHtmlClass}}"
+            name="{{::fieldId(true, false)}}">
+    <i class="checkbox-icon"></i>
+  </div>
+
+  <div  class="item-content disable-pointer-events {{form.labelHtmlClass}}"
+        ng-bind-html="form.title">
+  </div>
+
+  <!-- Help block for help text and error message -->
+  <p class="help-block" sf-message="form.description"></p>
+</label>
