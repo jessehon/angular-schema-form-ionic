@@ -19,7 +19,6 @@
 
       <button ng-hide="form.readonly || form.remove === null"
           ng-click="deleteFromArray(item)"
-          ng-disabled="form.schema.minItems >= modelArray.length"
           type="button"
           class="button icon-left ion-close {{ form.style.remove || 'button-block' }}">
         {{ form.remove || 'Remove'}}
