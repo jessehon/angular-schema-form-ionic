@@ -1,9 +1,9 @@
 <div class="schema-form-button {{::form.htmlClass + ' ' + idClass}}">
-    <button class="button {{ form.style }} {{::form.fieldHtmlClass}}"
-            type="button"
-            ng-click="buttonClick($event, form)"
-            ng-disabled="form.readonly">
-      <span ng-if="form.icon" class="{{form.icon}}"></span>
-      {{form.title}}
-    </button>
-  </div>
+  <button class="button {{ form.style }} {{::form.fieldHtmlClass}}"
+          type="button"
+          ng-click="buttonClick($event, form)"
+          ng-disabled="form.readonly">
+    <span ng-if="form.icon" class="{{form.icon}}"></span>
+    {{form.title}}
+  </button>
+</div>
