@@ -1,18 +1,22 @@
-<div class="list schema-form-radios {{form.htmlClass}}"
-     ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false}">
+<div  class="list schema-form-radios {{::form.htmlClass + ' ' + idClass}}"
+      ng-class="{
+        'has-error': form.disableErrorState !== true &&  hasError(),
+        'has-success': form.disableSuccessState !== true && hasSuccess(),
+        'required': form.required === true
+      }">
 
-  <label class="item item-radio" ng-repeat="item in form.titleMap">
+  <label class="item item-radio" ng-repeat="tm in form.titleMap">
     <input type="radio"
            class="{{form.fieldHtmlClass}}"
            sf-changed="form"
            ng-disabled="form.readonly"
            sf-field-model
-           ng-value="item.value"
-           name="{{form.key.join('.')}}">
+           ng-value="tm.value"
+           name="{{::fieldId(true, false)}}">
 
     <div class="radio-content">
-      <div class="item-content disable-pointer-events {{form.labelHtmlClass}}"
-           ng-bind-html="item.name">
+      <div class="item-content disable-pointer-events {{::form.labelHtmlClass}}"
+           ng-bind-html="tm.name">
       </div>
       <i class="radio-icon disable-pointer-events icon ion-checkmark"></i>
     </div>

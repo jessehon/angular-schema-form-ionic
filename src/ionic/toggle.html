@@ -1,21 +1,25 @@
-<div class="item item-toggle schema-form-toggle {{form.htmlClass}}"
-     ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false}">
+<div  class="item item-toggle schema-form-toggle {{::form.htmlClass + ' ' + idClass}}"
+      ng-class="{
+        'has-error': form.disableErrorState !== true && hasError(),
+        'has-success': form.disableSuccessState !== true && hasSuccess(),
+        'has-feedback': form.feedback !== false,
+        'required': form.required === true
+      }">
 
-  <div class="{{form.labelHtmlClass}}">
+  <div class="{{::form.labelHtmlClass}}">
     {{form.title}}
   </div>
 
-  <label for="{{form.key.slice(-1)[0]}}"
-         class="toggle">
+  <label  for="{{::fieldId(true, false)}}"
+          class="toggle">
 
-    <input sf-field-model
-           type="checkbox"
+    <input type="checkbox"
            sf-changed="form"
            ng-disabled="form.readonly"
+           sf-field-model
            schema-validate="form"
-           class="{{form.fieldHtmlClass}}"
-           name="{{form.key.slice(-1)[0]}}"
-           aria-label="{{form.title}}">
+           class="{{::form.fieldHtmlClass}}"
+           name="{{::fieldId(true, false)}}">
 
     <div class="track">
       <div class="handle"></div>
