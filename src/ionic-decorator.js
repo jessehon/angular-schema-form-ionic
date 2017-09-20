@@ -1,6 +1,7 @@
 // ngtemplate-loader embeds the html on build
 // import actionsTemplate from './ionic/actions.html';
 import arrayTemplate from './ionic/array.html';
+import buttonTemplate from './ionic/button.html';
 import checkboxTemplate from './ionic/checkbox.html';
 // import checkboxesTemplate from './ionic/checkboxes.html';
 import defaultTemplate from './ionic/default.html';
@@ -68,7 +69,7 @@ function ionicDecoratorConfig(
   decoratorsProvider.defineDecorator('ionicDecorator', {
     // actions: {template: actionsTemplate, builder: defaults},
     array: {template: arrayTemplate, builder: [ sfField, ngModelOptions, ngModel, array, condition ]},
-    button: {template: submitTemplate, builder: defaults},
+    button: {template: buttonTemplate, builder: defaults},
     checkbox: {template: checkboxTemplate, builder: defaults},
     // checkboxes: {template: checkboxesTemplate, builder: [ sfField, ngModelOptions, ngModel, array, condition ]},
     // conditional: {template: sectionTemplate, builder: [ sfField, simpleTransclusion, condition ]},

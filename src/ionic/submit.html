@@ -1,15 +1,6 @@
-<div class="form-group schema-form-submit {{::form.htmlClass + ' ' + idClass}}">
+<div class="schema-form-submit {{::form.htmlClass + ' ' + idClass}}">
   <input type="submit"
          class="button {{ form.style || 'button-positive' }} {{::form.fieldHtmlClass}}"
          value="{{form.title}}"
-         ng-disabled="form.readonly"
-         ng-if="form.type === 'submit'">
-  <button class="button {{ form.style }} {{::form.fieldHtmlClass}}"
-          type="button"
-          ng-click="buttonClick($event, form)"
-          ng-disabled="form.readonly"
-          ng-if="form.type !== 'submit'">
-    <span ng-if="form.icon" class="{{form.icon}}"></span>
-    {{form.title}}
-  </button>
+         ng-disabled="form.readonly">
 </div>

@@ -1,7 +1,7 @@
 /*!
  * angular-schema-form-ionic
- * @version 1.0.0
- * @date Wed, 20 Sep 2017 03:08:16 GMT
+ * @version 1.1.0
+ * @date Wed, 20 Sep 2017 04:13:47 GMT
  * @link https://github.com/jessehon/angular-schema-form-ionic
  * @license MIT
  * Copyright (c) 2014-2017 JSON Schema Form
@@ -71,14 +71,14 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(11);
+__webpack_require__(12);
 
 
 /***/ }),
@@ -86,12 +86,21 @@ __webpack_require__(11);
 /***/ (function(module, exports) {
 
 var path = '/ionic/array.html';
-var html = "<div  class=\"list schema-form-array {{::form.htmlClass + ' ' + idClass}}\"\n      sf-field-model=\"sf-new-array\"\n      sf-new-array>\n\n  <div class=\"item item-divider\" ng-show=\"showTitle()\">\n    {{ form.title }}\n  </div>\n\n  <div sf-field-model>\n    <div  class=\"list list-inset {{::form.fieldHtmlClass}}\"\n          sf-field-model=\"ng-repeat\"\n          ng-repeat=\"item in $$value$$ track by $id(trackBy(item, index))\">\n\n      <div  schema-form-array-items\n            sf-key-controller\n            sf-parent-key=\"[{{form.key.join('][')}}]\"\n            sf-index=\"{{$index}}\">\n      </div>\n\n      <button ng-hide=\"form.readonly || form.remove === null\"\n          ng-click=\"deleteFromArray(item)\"\n          ng-disabled=\"form.schema.minItems >= modelArray.length\"\n          type=\"button\"\n          class=\"button icon-left ion-close {{ form.style.remove || 'button-block' }}\">\n        {{ form.remove || 'Remove'}}\n      </button>\n    </div>\n  </div>\n\n  <div class=\"padding\" ng-model=\"modelArray\" schema-validate=\"form\">\n    <p class=\"help-block\"\n         ng-show=\"(hasError() && errorMessage(schemaError())) || form.description\"\n         ng-bind-html=\"(hasError() && errorMessage(schemaError())) || form.description\">\n    </p>\n\n    <button ng-hide=\"form.readonly || form.add === null\"\n            ng-click=\"appendToArray()\"\n            ng-disabled=\"form.schema.maxItems <= modelArray.length\"\n            type=\"button\"\n            class=\"button icon-left ion-plus {{ form.style.add || 'button-block' }}\">\n      {{ form.add || 'Add'}}\n    </button>\n  </div>\n</div>\n";
+var html = "<div  class=\"list schema-form-array {{::form.htmlClass + ' ' + idClass}}\"\n      sf-field-model=\"sf-new-array\"\n      sf-new-array>\n\n  <div class=\"item item-divider\" ng-show=\"showTitle()\">\n    {{ form.title }}\n  </div>\n\n  <div sf-field-model>\n    <div  class=\"list list-inset {{::form.fieldHtmlClass}}\"\n          sf-field-model=\"ng-repeat\"\n          ng-repeat=\"item in $$value$$ track by $id(trackBy(item, index))\">\n\n      <div  schema-form-array-items\n            sf-key-controller\n            sf-parent-key=\"[{{form.key.join('][')}}]\"\n            sf-index=\"{{$index}}\">\n      </div>\n\n      <button ng-hide=\"form.readonly || form.remove === null\"\n          ng-click=\"deleteFromArray(item)\"\n          type=\"button\"\n          class=\"button icon-left ion-close {{ form.style.remove || 'button-block' }}\">\n        {{ form.remove || 'Remove'}}\n      </button>\n    </div>\n  </div>\n\n  <div class=\"padding\" ng-model=\"modelArray\" schema-validate=\"form\">\n    <p class=\"help-block\"\n         ng-show=\"(hasError() && errorMessage(schemaError())) || form.description\"\n         ng-bind-html=\"(hasError() && errorMessage(schemaError())) || form.description\">\n    </p>\n\n    <button ng-hide=\"form.readonly || form.add === null\"\n            ng-click=\"appendToArray()\"\n            ng-disabled=\"form.schema.maxItems <= modelArray.length\"\n            type=\"button\"\n            class=\"button icon-left ion-plus {{ form.style.add || 'button-block' }}\">\n      {{ form.add || 'Add'}}\n    </button>\n  </div>\n</div>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+var path = '/ionic/button.html';
+var html = "<div class=\"schema-form-button {{::form.htmlClass + ' ' + idClass}}\">\n    <button class=\"button {{ form.style }} {{::form.fieldHtmlClass}}\"\n            type=\"button\"\n            ng-click=\"buttonClick($event, form)\"\n            ng-disabled=\"form.readonly\">\n      <span ng-if=\"form.icon\" class=\"{{form.icon}}\"></span>\n      {{form.title}}\n    </button>\n  </div>\n";
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+module.exports = path;
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/checkbox.html';
@@ -100,7 +109,7 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/default.html';
@@ -109,7 +118,7 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/fieldset.html';
@@ -118,7 +127,7 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/radios.html';
@@ -127,7 +136,7 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/section.html';
@@ -136,7 +145,7 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/select.html';
@@ -145,16 +154,16 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/submit.html';
-var html = "<div class=\"form-group schema-form-submit {{::form.htmlClass + ' ' + idClass}}\">\n  <input type=\"submit\"\n         class=\"button {{ form.style || 'button-positive' }} {{::form.fieldHtmlClass}}\"\n         value=\"{{form.title}}\"\n         ng-disabled=\"form.readonly\"\n         ng-if=\"form.type === 'submit'\">\n  <button class=\"button {{ form.style }} {{::form.fieldHtmlClass}}\"\n          type=\"button\"\n          ng-click=\"buttonClick($event, form)\"\n          ng-disabled=\"form.readonly\"\n          ng-if=\"form.type !== 'submit'\">\n    <span ng-if=\"form.icon\" class=\"{{form.icon}}\"></span>\n    {{form.title}}\n  </button>\n</div>\n";
+var html = "<div class=\"schema-form-submit {{::form.htmlClass + ' ' + idClass}}\">\n  <input type=\"submit\"\n         class=\"button {{ form.style || 'button-positive' }} {{::form.fieldHtmlClass}}\"\n         value=\"{{form.title}}\"\n         ng-disabled=\"form.readonly\">\n</div>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/textarea.html';
@@ -163,7 +172,7 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 var path = '/ionic/toggle.html';
@@ -172,33 +181,36 @@ window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, htm
 module.exports = path;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_array_html__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_array_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ionic_array_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_checkbox_html__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_checkbox_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ionic_checkbox_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_default_html__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_default_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__ionic_default_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_fieldset_html__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_fieldset_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__ionic_fieldset_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_radios_html__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_radios_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__ionic_radios_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_section_html__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_section_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__ionic_section_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_select_html__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_select_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__ionic_select_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_submit_html__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_submit_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__ionic_submit_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_textarea_html__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_textarea_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__ionic_textarea_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_toggle_html__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_toggle_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__ionic_toggle_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_button_html__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_button_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__ionic_button_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_checkbox_html__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_checkbox_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__ionic_checkbox_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_default_html__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_default_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__ionic_default_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_fieldset_html__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_fieldset_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__ionic_fieldset_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_radios_html__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_radios_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__ionic_radios_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_section_html__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_section_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__ionic_section_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_select_html__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_select_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__ionic_select_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_submit_html__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_submit_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__ionic_submit_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_textarea_html__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_textarea_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__ionic_textarea_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_toggle_html__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_toggle_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__ionic_toggle_html__);
 // ngtemplate-loader embeds the html on build
 // import actionsTemplate from './ionic/actions.html';
+
 
 
 // import checkboxesTemplate from './ionic/checkboxes.html';
@@ -267,31 +279,31 @@ function ionicDecoratorConfig(
   decoratorsProvider.defineDecorator('ionicDecorator', {
     // actions: {template: actionsTemplate, builder: defaults},
     array: {template: __WEBPACK_IMPORTED_MODULE_0__ionic_array_html___default.a, builder: [ sfField, ngModelOptions, ngModel, array, condition ]},
-    button: {template: __WEBPACK_IMPORTED_MODULE_7__ionic_submit_html___default.a, builder: defaults},
-    checkbox: {template: __WEBPACK_IMPORTED_MODULE_1__ionic_checkbox_html___default.a, builder: defaults},
+    button: {template: __WEBPACK_IMPORTED_MODULE_1__ionic_button_html___default.a, builder: defaults},
+    checkbox: {template: __WEBPACK_IMPORTED_MODULE_2__ionic_checkbox_html___default.a, builder: defaults},
     // checkboxes: {template: checkboxesTemplate, builder: [ sfField, ngModelOptions, ngModel, array, condition ]},
     // conditional: {template: sectionTemplate, builder: [ sfField, simpleTransclusion, condition ]},
-    'default': {template: __WEBPACK_IMPORTED_MODULE_2__ionic_default_html___default.a, builder: defaults},
-    fieldset: {template: __WEBPACK_IMPORTED_MODULE_3__ionic_fieldset_html___default.a, builder: [ sfField, simpleTransclusion, condition ]},
+    'default': {template: __WEBPACK_IMPORTED_MODULE_3__ionic_default_html___default.a, builder: defaults},
+    fieldset: {template: __WEBPACK_IMPORTED_MODULE_4__ionic_fieldset_html___default.a, builder: [ sfField, simpleTransclusion, condition ]},
     // help: {template: helpTemplate, builder: defaults},
     // number: {template: defaultTemplate, builder: defaults.concat(numeric)},
     // password: {template: defaultTemplate, builder: defaults},
-    radios: {template: __WEBPACK_IMPORTED_MODULE_4__ionic_radios_html___default.a, builder: defaults},
+    radios: {template: __WEBPACK_IMPORTED_MODULE_5__ionic_radios_html___default.a, builder: defaults},
     // 'radios-inline': {template: radiosInlineTemplate, builder: defaults},
     // radiobuttons: {template: radiobuttonsTemplate, builder: defaults},
-    section: {template: __WEBPACK_IMPORTED_MODULE_5__ionic_section_html___default.a, builder: [ sfField, simpleTransclusion, condition ]},
-    select: {template: __WEBPACK_IMPORTED_MODULE_6__ionic_select_html___default.a, builder: [ selectPlaceholder ].concat(defaults)},
-    submit: {template: __WEBPACK_IMPORTED_MODULE_7__ionic_submit_html___default.a, builder: defaults},
+    section: {template: __WEBPACK_IMPORTED_MODULE_6__ionic_section_html___default.a, builder: [ sfField, simpleTransclusion, condition ]},
+    select: {template: __WEBPACK_IMPORTED_MODULE_7__ionic_select_html___default.a, builder: [ selectPlaceholder ].concat(defaults)},
+    submit: {template: __WEBPACK_IMPORTED_MODULE_8__ionic_submit_html___default.a, builder: defaults},
     // tabarray: {template: tabarrayTemplate, builder: [ sfField, ngModelOptions, ngModel, array, condition ]},
     // tabs: {template: tabsTemplate, builder: [ sfField, ngModelOptions, tabs, condition ]},
-    textarea: {template: __WEBPACK_IMPORTED_MODULE_8__ionic_textarea_html___default.a, builder: defaults},
-    toggle: {template: __WEBPACK_IMPORTED_MODULE_9__ionic_toggle_html___default.a, builder: defaults},
+    textarea: {template: __WEBPACK_IMPORTED_MODULE_9__ionic_textarea_html___default.a, builder: defaults},
+    toggle: {template: __WEBPACK_IMPORTED_MODULE_10__ionic_toggle_html___default.a, builder: defaults},
   }, []);
 };
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -344,13 +356,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(15);
+__webpack_require__(16);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {/*!
@@ -6014,10 +6026,10 @@ module.exports = __webpack_require__(4);
 
 /***/ })
 /******/ ]);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12).setImmediate, __webpack_require__(12).clearImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13).setImmediate, __webpack_require__(13).clearImmediate))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -6207,7 +6219,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -6397,10 +6409,10 @@ process.umask = function() { return 0; };
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16), __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17), __webpack_require__(15)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 var g;
@@ -6427,11 +6439,11 @@ module.exports = g;
 
 
 /***/ }),
-/* 17 */,
-/* 18 */
+/* 18 */,
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(13);
+__webpack_require__(14);
 module.exports = __webpack_require__(0);
 
 
