@@ -39,7 +39,6 @@ module.exports = {
     modules: [
       path.join(__dirname, "src"),
       path.join(__dirname, "src", "ionic"),
-      path.join(__dirname, "..", "angular-schema-form", "dist"),
       'node_modules',
     ],
     extensions: [ '.js', '.html' ]
